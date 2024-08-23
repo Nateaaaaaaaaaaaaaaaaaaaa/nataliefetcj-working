@@ -1,6 +1,5 @@
 use std::mem::replace;
 
-// use sysinfo::{System, SystemExt, ProcessExt};
 fn main() {
     use sysinfo::{
         Components, Disks, Networks, System,
