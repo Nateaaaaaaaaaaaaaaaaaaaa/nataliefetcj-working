@@ -1,8 +1,13 @@
-
-{ pkgs ? import <nixpkgs> { } }:
-pkgs.rustPlatform.buildRustPackage rec {
-  pname = "nataliefetch";
-  version = "0.1";
-  cargoLock.lockFile = ./Cargo.lock;
-  src = pkgs.lib.cleanSource ./.;
+let
+    pkgs = import <nixpkgs> {};
+in
+pkgs.rustPlatform.buildRustPackage {
+    name = "nataliefetch";
+    src = pkgs.fetchFromGitHub {
+        owner = "Nateaaaaaaaaaaaaaaaaaaaa";
+        repo = "nataliefetcj-working";
+        rev = "235ad89";
+        sha256 = "sha256-GJXFNwFnmm/FVoam631GOr8o5YJKuvcdOd1+sRe/8F0=";
+    };
+    cargoLock.lockFile = ./Cargo.lock;
 }
